@@ -1,9 +1,12 @@
 import React from 'react'
+import Landing from './'
+import Footer from './components/Footer'
 
 export default function index() {
     return (
         <div>
-            <h1>Show service list</h1>
+            <Landing />
+            <Footer />
         </div>
     )
 }

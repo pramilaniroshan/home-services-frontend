@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function index() {
+export default function indx() {
     return (
         <div>
-            <h1>Show service list</h1>
+            <h1>Update service info</h1>
         </div>
     )
 }
