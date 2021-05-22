@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './style.css'
 
+
+
+
 export default function index() {
+
+   
+//     // Similar to componentDidMount and componentDidUpdate:
+//   useEffect(() => {
+//     // Update the document title using the browser API
+   
+//   });
+
     return (
         <div>
             <div class="container emp-profile">

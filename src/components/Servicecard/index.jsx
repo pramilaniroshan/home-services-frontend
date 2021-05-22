@@ -3,7 +3,7 @@ import './style.css'
 
 export default function index() {
     return (
-        <div class="row">
+        
             <div class="col-lg-3 ">
                 <div class="text-center card-box ">
                     <div class="member-card pt-2 pb-2">
@@ -46,7 +46,7 @@ export default function index() {
                         </div>
                     </div>
                 </div>
-            </div>
+            
 
 
             
