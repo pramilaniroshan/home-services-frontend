@@ -10,6 +10,7 @@ import CreateService from './components/Createservice'
 import UpdateServiceInfo from './components/UpdateServiceInfo'
 import ShowServiceDetails from './components/ShowServiceDetails'
 import Admin from './components/Admin'
+import NotFound from './components/Notfound'
 
 // React Notification
 import 'react-notifications/lib/notifications.css';
@@ -66,6 +67,7 @@ class App extends Component {
             {/* <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} /> */}
+            <Route component={NotFound} />
              <NotificationContainer />
           </Switch>
         </div>
