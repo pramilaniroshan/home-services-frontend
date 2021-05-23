@@ -1,17 +1,19 @@
 import React from 'react'
 import './style.css'
+import avatar from '../../assets/avatar.png'
 
-export default function index() {
+export default function index(props) {
+    const service = props.service;
     return (
         
             <div class="col-lg-3 ">
                 <div class="text-center card-box ">
                     <div class="member-card pt-2 pb-2">
                         <div class="thumb-lg member-thumb mx-auto">
-
-                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image" /></div>
+                        
+                        <img src={avatar} class="rounded-circle img-thumbnail" alt="profile-image" /></div>
                         <div class="">
-                            <h4>Freddie J. Plourde</h4>
+                            <h4>{service.title}</h4>
                             <p class="text-muted">@Founder <span>| </span><span><a href="#" class="text-pink">websitename.com</a></span></p>
                         </div>
                         <ul class="social-links list-inline">
