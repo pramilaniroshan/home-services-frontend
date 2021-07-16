@@ -14,8 +14,8 @@ import NotFound from './components/Notfound'
 
 // React Notification
 import 'react-notifications/lib/notifications.css';
-import { NotificationContainer } from 'react-notifications';
 
+import {NotificationContainer} from 'react-notifications';
 
 class App extends Component {
  // constructor(props) {
@@ -68,8 +68,9 @@ class App extends Component {
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} /> */}
             <Route component={NotFound} />
-             <NotificationContainer />
+             
           </Switch>
+          <NotificationContainer />
         </div>
        
       </div>
