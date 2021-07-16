@@ -37,6 +37,7 @@ class index extends Component {
 
   
   onChange = e => {
+    
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -56,14 +57,8 @@ class index extends Component {
     };
 
     axios
-      .post('http://localhost:8080/api/service/all', {
-        
-      data },
-        {
-            headers: {
-        'x-access-token' : `${this.state.currentUser.accessToken}`
-      }
-    }
+      .post('http://localhost:8080/api/service/all',
+      data
       )
       .then(res => {
         this.setState({
@@ -76,12 +71,12 @@ class index extends Component {
           
         })
         this.props.history.push('/');
-        NotificationManager.success('You have added a new Service!', 'Successful!', 2000);
+        NotificationManager.success('You have added a new Service!', 'Successful!', 5000);
       })
       .catch(err => {
         //console.log("Error in CreateService!");
         this.setState({loading : false})
-        NotificationManager.error('Error while Creating new Service!', 'Error!');
+        NotificationManager.error('Error while Creating new Service!', 'Error!',5000);
       })
   };
 
