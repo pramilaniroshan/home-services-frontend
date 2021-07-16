@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './style.css'
 import Header from '../Header/Header';
 import axios from 'axios';
@@ -57,7 +58,7 @@ export default function index() {
                                       Hello 👋  {user.username}
                                     </h5>
                                     <h6>
-                                        Web Developer and Designer
+                                    All plumbing work Fix and replce electronic value and new technology system
                                     </h6>
                                     <p class="proile-rating">RATINGS : 4.7
                                     <span>
@@ -144,22 +145,60 @@ export default function index() {
                                         </div>
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <Link to = {"/create-service"} className=" btn btn-primary btn-log-in">Create a new Servicee</Link>
                                         <div class="row">
-                                            
+                                       
+                                    {/* card 1 */}
+                                        <div class="col-sm-6 col-md-5 col-lg-5  mt-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/200/150/?random" />
+                    <div class="card-block">
+                        <figure class="profile">
+                            <img src="https://picsum.photos/200/150/?random" class="profile-avatar" alt="" />
+                        </figure>
+                        <h4 class="card-title mt-3">තාප්පයක් අලුත්වැඩියාව</h4>
+                        <div class="meta">
+                            <a>Friends</a>
+                        </div>
+                        <div class="card-text">
+                        Pramila is a web designer living in Sri lanka.
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small>Last updated 3 mins ago</small>
+                        <button class="btn btn-secondary float-right btn-sm">Edit</button>
+                    </div>
+                </div>
+            </div>
+
+             {/* card 2 */}
+
+             <div class="col-sm-6 col-md-5 col-lg-5  mt-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/200/150/?random" />
+                    <div class="card-block">
+                        <figure class="profile">
+                            <img src="https://picsum.photos/200/150/?random" class="profile-avatar" alt="" />
+                        </figure>
+                        <h4 class="card-title mt-3">Plumbing repair work</h4>
+                        <div class="meta">
+                            <a>Friends</a>
+                        </div>
+                        <div class="card-text">
+                            Pramila is a web designer living in Sri lanka.
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small>Last updated 3 mins ago</small>
+                        <button class="btn btn-secondary float-right btn-sm">Edit</button>
+                    </div>
+                </div>
+            </div>
+
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
-                                        </div>
+                                        
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
