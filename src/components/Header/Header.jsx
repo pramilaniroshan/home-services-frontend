@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import {Link} from 'react-router-dom'
 import AuthService from '../../Services/auth.service'
+import md5 from "md5";
+
 import './css.css'
 
 class Header extends Component {
@@ -8,7 +10,7 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.logOut = this.logOut.bind(this);
-
+    this.gravatar = this.gravatar.bind(this);
     this.state = {
       showModeratorBoard: false,
       showAdminBoard: false,
@@ -16,21 +18,32 @@ class Header extends Component {
     };
   }
 
+  
+
   componentDidMount() {
     const user = AuthService.getCurrentUser();
 
     if (user) {
       this.setState({
         currentUser: user,
-        showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
-        showAdminBoard: user.roles.includes("ROLE_ADMIN"),
+        // showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
+        // showAdminBoard: user.roles.includes("ROLE_ADMIN"),
       });
     }
   }
 
+  
+
   logOut() {
     AuthService.logout();
     window.location.reload();
+    window.location.replace('/');
+  }
+
+
+  gravatar(email){
+      
+    return `https://www.gravatar.com/avatar/${md5(email)}`;
   }
 
   render() {
@@ -97,7 +110,7 @@ class Header extends Component {
      
      {currentUser ?
      ( 
-      <li class="nav-item dropdown nav-user"> <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://img.icons8.com/dusk/100/000000/user-female-circle.png" alt="" class="user-avatar-md rounded-circle" /></a>
+      <li class="nav-item dropdown nav-user"> <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src={this.gravatar(this.state.currentUser.email)}  alt="" class="user-avatar-md rounded-circle" /> </a>
       <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
           <div class="nav-user-info">
               <h5 class="mb-0 text-white nav-user-name">{this.state.currentUser.username}</h5> <span class="status"></span><span class="ml-2">Available</span>
