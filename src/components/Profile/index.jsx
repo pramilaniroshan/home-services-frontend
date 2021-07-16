@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.css'
+import Header from '../Header/Header'
 
 
 
@@ -15,6 +16,7 @@ export default function index() {
 
     return (
         <div>
+            <Header />
             <div class="container emp-profile">
             <form method="post">
                 <div class="row">
