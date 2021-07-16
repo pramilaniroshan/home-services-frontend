@@ -55,13 +55,13 @@ class index extends Component {
 
     let serviceFil;
 
-    if(service === null || loading) {
+    if(service.length==0) {
       serviceList = <Loader
       type="Puff"
       color="#00BFFF"
       height={100}
       width={100}
-      timeout={3000} //3 secs
+       //3 secs
     />;
     } else {
       if (serviceList.length==0) {
@@ -128,14 +128,14 @@ class index extends Component {
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Enter Pickup City" onChange={ e =>this.setState({ searchkey: e.target.value })} />
+                            <input type="text" class="form-control search-slt" placeholder="Enter Service Name" onChange={ e =>this.setState({ searchkey: e.target.value })} />
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Enter Drop City" />
+                            <input type="text" class="form-control search-slt" placeholder="Enter ZIP Code" />
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                             <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                <option>Select Vehicle</option>
+                                <option>Select Category</option>
                                 <option>Example one</option>
                                 <option>Example one</option>
                                 <option>Example one</option>
