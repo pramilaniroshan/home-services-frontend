@@ -6,6 +6,15 @@ import AuthService from '../../Services/auth.service'
 import { NotificationManager } from 'react-notifications';
 import Loader from "react-loader-spinner";
 import Header from '../Header/Header'
+import { FilePond, File, registerPlugin } from 'react-filepond'
+import 'filepond/dist/filepond.min.css'
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+
+// Register the plugins
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview,FilePondPluginFileEncode);
 
 
 class index extends Component {
@@ -55,28 +64,33 @@ class index extends Component {
 
     };
 
-    axios
-      .post('http://localhost:8080/api/service/all',
-      data
-      )
-      .then(res => {
-        this.setState({
-          title: '',
-          category:'',
-          user_id:'',
-          description:'',
-          published_date:'',
-          image : ''
+   
+
+    console.log(data.image.getFileEncodeBase64String())
+   
+
+    // axios
+    //   .post('http://localhost:8080/api/service/all',
+    //   data
+    //   )
+    //   .then(res => {
+    //     this.setState({
+    //       title: '',
+    //       category:'',
+    //       user_id:'',
+    //       description:'',
+    //       published_date:'',
+    //       image : ''
           
-        })
-        this.props.history.push('/');
-        NotificationManager.success('You have added a new Service!', 'Successful!', 5000);
-      })
-      .catch(err => {
-        //console.log("Error in CreateService!");
-        this.setState({loading : false})
-        NotificationManager.error('Error while Creating new Service!', 'Error!',5000);
-      })
+    //     })
+    //     this.props.history.push('/');
+    //     NotificationManager.success('You have added a new Service!', 'Successful!', 5000);
+    //   })
+    //   .catch(err => {
+    //     //console.log("Error in CreateService!");
+    //     this.setState({loading : false})
+    //     NotificationManager.error('Error while Creating new Service!', 'Error!',5000);
+    //   })
   };
 
   render() {
@@ -125,8 +139,7 @@ class index extends Component {
                
 
                 <div className='form-group'>
-                  <input
-                    type='text'
+                <textarea
                     placeholder='Describe this Service'
                     name='description'
                     className='form-control'
@@ -148,9 +161,15 @@ class index extends Component {
                 
                 
                 <div className='form-group'>
-                <FileBase64
+                {/* <FileBase64
         multiple={ false }
-        onDone={ a =>  this.state.image = a.base64   } />
+        onDone={ a =>  this.state.image = a.base64   } /> */}
+        <FilePond
+        allowMultiple={false}
+        allowFileEncode = {true}
+        files = {this.state.image}
+        labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+      />
                 </div>
 
                 <input
