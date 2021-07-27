@@ -11,6 +11,7 @@ import UpdateServiceInfo from './components/UpdateServiceInfo'
 import ShowServiceDetails from './components/ShowServiceDetails'
 import Admin from './components/Admin'
 import NotFound from './components/Notfound'
+import EditProfile from './components/EditProfile'
 
 // React Notification
 import 'react-notifications/lib/notifications.css';
@@ -64,6 +65,7 @@ class App extends Component {
             <Route exact path='/edit-service/:id' component={UpdateServiceInfo} />
             <Route exact path='/show-service/:id' component={ShowServiceDetails} />
             <Route exact path='/admin' component={Admin} />
+            <Route exact path='/editprofile' component={EditProfile} />
             {/* <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} /> */}
