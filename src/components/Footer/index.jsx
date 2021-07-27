@@ -6,15 +6,7 @@ export default function index() {
         <div>
             <div class="container-fluid mx-auto">
     <div class="row justify-content-center top-part">
-        <div class="col-md-6 text-center center-content">
-            <div class="d-flex-inline">
-                <h3 class="footer-heading">Start a Project with itCraft</h3>
-            </div>
-            <div class="d-flex-inline">
-                <p>We are based in Warsaw, Bydgoszcz & Torun in Poland but we are Google Cloud Partner we can arrange a meeting at Google Campus in Warsaw or in London. We are also present in Norway. Below you will find all the contact details you need.</p>
-            </div>
-            <div class="d-flex-inline pt-2"> <button class="btn-pink btn">ESTIMATE PROJECT</button> </div>
-        </div>
+        
     </div>
     <div class="row">
         <div class="line mb-3 mx-auto"></div>
