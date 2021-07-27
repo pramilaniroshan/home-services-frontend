@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import './style.css'
 import Header from '../Header/Header';
+import Popup from 'reactjs-popup';
 import axios from 'axios';
 import authService from '../../Services/auth.service';
 import md5 from 'md5';
 import ReactStars from "react-rating-stars-component";
+import Indlist from '../ShowServiceList/Indlist'
+import EditProfile from '../EditProfile'
+import 'reactjs-popup/dist/index.css';
 
 
 
@@ -32,15 +36,17 @@ export default function index() {
 
 
       
- var src = `https://www.gravatar.com/avatar/${md5(user.email)}?s=500`;
-  
-
-
+if(user) {
+    var src = `https://www.gravatar.com/avatar/${md5(user.email)}?s=500`;
 
     return (
         <div>
             <Header />
             <div class="container emp-profile">
+            <div class="alert alert-primary" role="alert">
+                
+  Hi {user.username}, Please Update Your profile For Create a Service
+</div>
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
@@ -82,7 +88,8 @@ export default function index() {
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        {/* <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> */}
+                        <Link to="/editprofile" class="profile-edit-btn">Edit Profile</Link>
                     </div>
                 </div>
                 <div class="row">
@@ -148,53 +155,10 @@ export default function index() {
                             <Link to = {"/create-service"} className=" btn btn-primary btn-log-in">Create a new Servicee</Link>
                                         <div class="row">
                                        
-                                    {/* card 1 */}
-                                        <div class="col-sm-6 col-md-5 col-lg-5  mt-4">
-                <div class="card">
-                    <img class="card-img-top" src="https://picsum.photos/200/150/?random" />
-                    <div class="card-block">
-                        <figure class="profile">
-                            <img src="https://picsum.photos/200/150/?random" class="profile-avatar" alt="" />
-                        </figure>
-                        <h4 class="card-title mt-3">තාප්පයක් අලුත්වැඩියාව</h4>
-                        <div class="meta">
-                            <a>Friends</a>
-                        </div>
-                        <div class="card-text">
-                        Pramila is a web designer living in Sri lanka.
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <small>Last updated 3 mins ago</small>
-                        <button class="btn btn-secondary float-right btn-sm">Edit</button>
-                    </div>
-                </div>
-            </div>
-
+                                   
              {/* card 2 */}
 
-             <div class="col-sm-6 col-md-5 col-lg-5  mt-4">
-                <div class="card">
-                    <img class="card-img-top" src="https://picsum.photos/200/150/?random" />
-                    <div class="card-block">
-                        <figure class="profile">
-                            <img src="https://picsum.photos/200/150/?random" class="profile-avatar" alt="" />
-                        </figure>
-                        <h4 class="card-title mt-3">Plumbing repair work</h4>
-                        <div class="meta">
-                            <a>Friends</a>
-                        </div>
-                        <div class="card-text">
-                            Pramila is a web designer living in Sri lanka.
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <small>Last updated 3 mins ago</small>
-                        <button class="btn btn-secondary float-right btn-sm">Edit</button>
-                    </div>
-                </div>
-            </div>
-
+             <Indlist />
                                         </div>
                                         
                                 <div class="row">
@@ -206,6 +170,24 @@ export default function index() {
                 </div>
             </form>           
         </div>
+   
+
+
         </div>
+)
+}
+
+else{
+    return (
+        <>
+    <Redirect to="/" />
+    </>
     )
+}
+  
+
+
+
+    
+    
 }
