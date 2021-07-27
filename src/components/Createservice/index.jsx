@@ -6,18 +6,15 @@ import AuthService from '../../Services/auth.service'
 import { NotificationManager } from 'react-notifications';
 import Loader from "react-loader-spinner";
 import Header from '../Header/Header'
-import { FilePond, File, registerPlugin } from 'react-filepond'
-import 'filepond/dist/filepond.min.css'
-import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
-import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+import { GoogleComponent } from 'react-google-location' 
+require('dotenv').config();
 
-// Register the plugins
-registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview,FilePondPluginFileEncode);
 
+
+const API_KEY = "AIzaSyBMhNtTeK3q5agvPCN_yKSk-GQbXg3WULo"
 
 class index extends Component {
+  
   constructor() {
     super();
     this.state = {
@@ -28,8 +25,11 @@ class index extends Component {
       published_date:'',
       image :'',
       loading : false,
-      currentUser: undefined
+      currentUser: undefined,
+      place: null,
+      cor : []
     };
+    
   }
 
   componentDidMount() {
@@ -41,9 +41,17 @@ class index extends Component {
         // 
       });
     }
-  }
 
-  
+    let clodinary = window.cloudinary.applyUploadWidget(document.getElementById('opener'), 
+  { cloudName: "dzn94tpjd", uploadPreset: "mhkisyrj" }, (error, result) => { 
+        if (!error && result && result.event === "success") { 
+          console.log('Done! Here is the image info: ', result.info); 
+          this.state.image = result.info.url;
+        }
+      });
+
+  }
+ 
   onChange = e => {
     
     this.setState({ [e.target.name]: e.target.value });
@@ -61,42 +69,58 @@ class index extends Component {
       description: this.state.description,
       published_date: this.state.published_date,
       image : this.state.image,
-
+      place : this.state.place,
+      zipcode : localStorage.getItem('zipcode')
     };
 
    
 
-    console.log(data.image.getFileEncodeBase64String())
+    console.log(data);
    
 
-    // axios
-    //   .post('http://localhost:8080/api/service/all',
-    //   data
-    //   )
-    //   .then(res => {
-    //     this.setState({
-    //       title: '',
-    //       category:'',
-    //       user_id:'',
-    //       description:'',
-    //       published_date:'',
-    //       image : ''
+    axios
+      .post('http://localhost:8080/api/service/all',
+      data
+      )
+      .then(res => {
+        this.setState({
+          title: '',
+          category:'',
+          user_id:'',
+          description:'',
+          published_date:'',
+          image : '',
+          place : []
           
-    //     })
-    //     this.props.history.push('/');
-    //     NotificationManager.success('You have added a new Service!', 'Successful!', 5000);
-    //   })
-    //   .catch(err => {
-    //     //console.log("Error in CreateService!");
-    //     this.setState({loading : false})
-    //     NotificationManager.error('Error while Creating new Service!', 'Error!',5000);
-    //   })
+        })
+        this.props.history.push('/');
+        NotificationManager.success('You have added a new Service!', 'Successful!', 5000);
+      })
+      .catch(err => {
+        //console.log("Error in CreateService!");
+        this.setState({loading : false})
+        NotificationManager.error('Error while Creating new Service!', 'Error!',5000);
+      })
   };
 
   render() {
+
+    // let myWidget = window.cloudinary.createUploadWidget({
+    //   cloudName: 'dzn94tpjd', 
+    //   uploadPreset: 'mhkisyrj'}, (error, result) => { 
+    //     if (!error && result && result.event === "success") { 
+    //       console.log('Done! Here is the image info: ', result.info); 
+    //     }
+    //   }
+    // );
+
+   
+
     return (
     <>    
     <Header />
+
+    
       <div className="CreateService">
         <div className="container">
           <div className="row">
@@ -106,11 +130,31 @@ class index extends Component {
                   Show My Service Service List
               </Link>
             </div>
+           
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Add Service</h1>
               <p className="lead text-center">
                   Create new Service
               </p>
+
+
+              <div >
+         <GoogleComponent
+         
+          apiKey={API_KEY}
+          language={'si'}
+          country={'country:LK'}
+          coordinates={true}
+          currentCoordinates={{
+            "lat": 41.7151377,
+            "lng": 44.827096
+          }}
+          placeholder={'Start typing location'}
+          locationBoxStyle={'custom-style'}
+          locationListStyle={'custom-style-list'}
+          onChange={(e) => { this.setState({ place: e })} } />
+      </div>
+
 
               <form noValidate onSubmit={this.onSubmit}>
                 <div className='form-group'>
@@ -159,17 +203,20 @@ class index extends Component {
                   />
                 </div>
                 
-                
+                {console.log(this.state.place)}
                 <div className='form-group'>
+                <button id="opener" className="btn" onChange={this.onChange}>Upload</button>
                 {/* <FileBase64
         multiple={ false }
         onDone={ a =>  this.state.image = a.base64   } /> */}
-        <FilePond
+        {/* <FilePond
         allowMultiple={false}
         allowFileEncode = {true}
         files = {this.state.image}
         labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
-      />
+      /> */}
+      
+          
                 </div>
 
                 <input
