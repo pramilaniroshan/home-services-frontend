@@ -13,7 +13,9 @@ class index extends Component {
     this.state = {
       loading: true ,
       service: [],
-      searchkey : ''
+      searchkey : '',
+      zip_search: '',
+      place : ''
     };
   }
 
@@ -21,12 +23,14 @@ class index extends Component {
     axios
       .get('http://localhost:8080/api/service/all')
       .then(res =>
+        
          {
-          console.log(res.data)
+        let data = res;
+          console.log(res.data.place)
         this.setState({
           service: res.data,
-          loading: false
-         
+          loading: false,
+          place : 'f'
         })
         
       })
@@ -47,7 +51,7 @@ class index extends Component {
     
 
    let s = new Fuse(service,{
-      keys: ['title', 'category','name']
+      keys: ['title', 'category','name','zipcode']
     })
 
     serviceList = s.search(this.state.searchkey)
@@ -66,13 +70,13 @@ class index extends Component {
     } else {
       if (serviceList.length==0) {
         serviceFil = service.map((a, k) =>
-        <ServiceCard service={a} key={k}  />
+        <ServiceCard place={this.state.place} service={a} key={k}  />
         
       );
        
       } else {
         serviceFil = serviceList.map((a, k) =>
-        <ServiceCard service={a.item} key={k}  />
+        <ServiceCard  place={this.state.place} service={a.item} key={k}  />
         
       );
       }
@@ -94,7 +98,7 @@ class index extends Component {
 
       
 
-      <div classname="container-fluid">
+      <div classname="container-fluid ">
 
 
 <div>
@@ -131,7 +135,7 @@ class index extends Component {
                             <input type="text" class="form-control search-slt" placeholder="Enter Service Name" onChange={ e =>this.setState({ searchkey: e.target.value })} />
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Enter ZIP Code" />
+                            <input type="text" class="form-control search-slt" placeholder="Enter ZIP Code" onChange={ e =>this.setState({ searchkey: e.target.value })} />
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                             <select class="form-control search-slt" id="exampleFormControlSelect1">
@@ -154,12 +158,13 @@ class index extends Component {
             </div>
             
     </div>
-    <div classname = "row p-t" >
-        
+    </div>
+    <div >
+      <div className ="container" >
       
           {loading ? SPINNER : showserviceList}
 
-        </div>
+      </div>
     </div>
 
 
