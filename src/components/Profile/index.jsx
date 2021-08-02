@@ -10,6 +10,7 @@ import ReactStars from "react-rating-stars-component";
 import Indlist from '../ShowServiceList/Indlist'
 import EditProfile from '../EditProfile'
 import 'reactjs-popup/dist/index.css';
+import Footer from '../Footer'
 
 
 
@@ -33,7 +34,24 @@ export default function index() {
 //           })
    
 //   },0);
-
+function deleteservice(id){
+    id.preventDefault();
+    let user = authService.getCurrentUser();
+    axios
+    .delete(`http://localhost:8080/api/service/all/${id}`,{
+       'x-access-token' : user.accessToken
+       
+      
+    })
+    .then(res =>
+       {
+        console.log(res)
+      
+    })
+    .catch(err =>{
+      console.log(err);
+    })
+  }
 
       
 if(user) {
@@ -91,11 +109,12 @@ if(user) {
                         {/* <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> */}
                         <Link to="/editprofile" class="profile-edit-btn">Edit Profile</Link>
                     </div>
+                    
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-work">
-                            <p>WORK LINK</p>
+                            {/* <p>WORK LINK</p>
                             <a href="">Website Link</a><br/>
                             <a href="">Bootsnipp Profile</a><br/>
                             <a href="">Bootply Profile</a>
@@ -104,7 +123,7 @@ if(user) {
                             <a href="">Web Developer</a><br/>
                             <a href="">WordPress</a><br/>
                             <a href="">WooCommerce</a><br/>
-                            <a href="">PHP, .Net</a><br/>
+                            <a href="">PHP, .Net</a><br/> */}
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -139,7 +158,7 @@ if(user) {
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>123 456 7890</p>
+                                                <p>0763190416</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -147,7 +166,7 @@ if(user) {
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p>Home worker</p>
                                             </div>
                                         </div>
                             </div>
@@ -158,7 +177,7 @@ if(user) {
                                    
              {/* card 2 */}
 
-             <Indlist />
+             <Indlist  />
                                         </div>
                                         
                                 <div class="row">
@@ -171,7 +190,7 @@ if(user) {
             </form>           
         </div>
    
-
+<Footer />
 
         </div>
 )
