@@ -3,6 +3,8 @@ import Header from '../Header/Header'
 import Footer from '../Footer'
 import axios from 'axios';
 import Googlemap  from '../Googlemap'
+import ReactStars from "react-rating-stars-component";
+
 class ShowServiceDetails extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,7 @@ class ShowServiceDetails extends Component {
       .get('http://localhost:8080/api/service/all/'+this.props.match.params.id)
       .then(res => {
         let data = res;
-       //console.log(data.data.place[0].coordinates.lat)
+       console.log(res.data)
        // console.log("Print-showServiceDetails-API-response: " + res.place[0].coordinates);
         this.setState({
           Service: res.data,
@@ -47,8 +49,8 @@ class ShowServiceDetails extends Component {
   render() {
 
     const Service = this.state.Service;
-    
-   //console.log(Service.place.coordinates);
+    let date = Date(this.state.Service.updated_date);
+
     
     return (
     <>
@@ -63,11 +65,31 @@ class ShowServiceDetails extends Component {
                 </div>
     
                 <div class="project-info-box">
-                    <p><b>Client:</b> CUPCAKE CO</p>
-                    <p><b>Date:</b> 14.02.2020</p>
-                    <p><b>Designer:</b> James Doe</p>
-                    <p><b>Tools:</b> Illustrator</p>
-                    <p class="mb-0"><b>Budget:</b> $500</p>
+                    <p><b>Service Provider:</b> {this.state.Service.service_provider}
+                    <ReactStars
+                                            count={5}
+                                            isHalf = {true}
+                                            value ={4.7}
+                                            edit ={true}
+                                            size={30}
+                                            activeColor="#ffd700"
+                                        />
+                                         <button class="btn btn-primary">Contact Service Provider </button>
+                    </p>
+                    <button> </button>
+                    <p><b>Updated Date:</b> {date}</p>
+                    <p><b>Zipcode:</b> {this.state.Service.zipcode}</p>
+                    <p><b>Skills:</b> </p>
+                    <p><b>Price:</b> ₨ {Service.budget} per day</p>
+                    <p class="mb-0">
+                        {/* <a href="#x" class="btn btn-xs btn-facebook btn-circle btn-icon mr-5 mb-0"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#x" class="btn btn-xs btn-twitter btn-circle btn-icon mr-5 mb-0"><i class="fab fa-skype"></i></a>
+                        <a href="#x" class="btn btn-xs btn-pinterest btn-circle btn-icon mr-5 mb-0"><i class="fa fa-mobile"></i></a>
+                        <a href="#x" class="btn btn-xs btn-linkedin btn-circle btn-icon mr-5 mb-0"><i class="fab fa-linkedin-in"></i></a> */}
+                     <a href={Service.facebook} target="_blank" > <i class="fab fa-facebook-f pr-4 fa-2x" style={{color:"#3C5B99"}}></i></a> 
+                        <i class="fab fa-whatsapp pr-4 fa-2x" style={{color:"#128C7E"}}></i>
+                        <i class="fab fa-skype pr-4 fa-2x" style={{color:"#00AAE8"}} ></i>
+                    </p>
                 </div>
     
                
@@ -75,24 +97,43 @@ class ShowServiceDetails extends Component {
     
             <div class="col-md-7">
                 {/* <img src={Service.image} alt="project-image" class="rounded" width="80%"/> */}
-               {console.log(this.state.lng)}
+               
                 <div class="project-info-box">
-                <Googlemap lat={this.state.lat} lng={this.state.lng} />
-                    <p><b>Categories:</b> Design, Illustration</p>
-                    <p><b>Skills:</b> Illustrator</p>
+                  {/* <img src={this.state.Service.image} /> */}
+                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src={this.state.Service.image} alt="First slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={this.state.Service.image} alt="Second slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={this.state.Service.image} alt="Third slide" />
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
                 </div>
-                <div class="project-info-box mt-0 mb-0">
-                    <p class="mb-0">
-                        <span class="fw-bold mr-10 va-middle hide-mobile">Share:</span>
-                        <a href="#x" class="btn btn-xs btn-facebook btn-circle btn-icon mr-5 mb-0"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#x" class="btn btn-xs btn-twitter btn-circle btn-icon mr-5 mb-0"><i class="fab fa-twitter"></i></a>
-                        <a href="#x" class="btn btn-xs btn-pinterest btn-circle btn-icon mr-5 mb-0"><i class="fab fa-pinterest"></i></a>
-                        <a href="#x" class="btn btn-xs btn-linkedin btn-circle btn-icon mr-5 mb-0"><i class="fab fa-linkedin-in"></i></a>
-                    </p>
-                </div>
+                
             </div>
+            
         </div>
-
+        <div class="project-info-box">
+                <Googlemap lat={this.state.lat} lng={this.state.lng} />
+                </div>
     </div>
     <Footer />
     </>
