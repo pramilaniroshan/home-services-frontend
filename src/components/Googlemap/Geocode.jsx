@@ -22,7 +22,7 @@ class Geocode extends Component {
       <div >
          <GoogleComponent
          
-          apiKey={API_KEY}
+          apiKey={'AIzaSyB7o94wNtXWb34_vsE3I1OLhbA8zYSw-uM'}
           language={'en'}
           country={'country:in|country:us'}
           coordinates={true}
