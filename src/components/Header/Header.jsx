@@ -71,10 +71,10 @@ class Header extends Component {
        <a class="nav-link" href="#">All Servies</a>
      </li>
      <li class="nav-item">
-       <a class="nav-link" href="#">About Us</a>
+     <Link class="nav-link" to="/about">About Us</Link>
      </li>
      <li class="nav-item">
-       <a class="nav-link" href="#">Contact Us</a>
+       <Link class="nav-link" to="/contact">Contact Us</Link>
      </li>
      
      { showAdminBoard && (
