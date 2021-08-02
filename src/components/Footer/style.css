@@ -28,3 +28,83 @@
 .grey-text {
     color: lightgrey
 }
+
+.paddingTB60 {
+    padding-top:60px;
+    padding-bottom:60px;
+}
+
+ 
+  
+/* Footer */
+.footer {
+    position: relative;
+    background-color: #fff;
+    color: #707070;
+    padding: 55px 0 40px;
+}
+.footer h5 {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    color: #707070;
+    position: relative;
+    padding-bottom: 16px;
+}
+.footer h5:after {
+    content: '';
+    display: block;
+    margin: 5px 0 0;
+    width: 40%;
+    height: 1px;
+    background-color: #fff;
+}
+.footer ul {
+    list-style: none;
+    line-height: 2.2em;
+    padding-left:0px;
+}
+.footer ul a {
+    color:#707070;;
+}
+.footer ul a:hover {
+    color:#274abb;;
+    text-decoration:none;
+}
+/*footer bottom */
+
+ /* CTA CSS */
+ .cta-padding35 {
+    padding: 35px 0 35px;
+    background-color: #b40028;
+    color:#fff;
+}
+/* Buttons */
+.site-btn {
+    font-size: 14px;
+    padding: 13px 30px;
+    border-radius: 5px;
+    border: 1px solid #b40028 ;
+    min-width: 200px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #ffffff ;
+    background-color:transparent;
+    transition: all .25s ease-in-out;
+    margin: 10px 0px 10px 0px;
+    border: 1px solid #fff;
+    
+}
+.site-btn:hover {
+    background: #b40028 ;
+    border: 1px solid #fff;
+    font-weight:700px;
+    
+    
+}
+ 
+
+
+/* Navigation */
