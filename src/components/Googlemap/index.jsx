@@ -8,7 +8,7 @@ export default function index({lat,lng}) {
     <div>
        <div style={{ height: '50vh', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: '' }}
+          bootstrapURLKeys={{ key: 'AIzaSyB7o94wNtXWb34_vsE3I1OLhbA8zYSw-uM' }}
          
           defaultCenter={{
             lat: lat,
