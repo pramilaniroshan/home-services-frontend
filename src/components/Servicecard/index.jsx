@@ -35,9 +35,8 @@ export default function index(props) {
                         <i class="star fas fa-star text-warning"></i>
                         <i class="star fas fa-star text-warning"></i> <span class="badge badge-pill badge-secondary ml-2">5.0</span></div>
                     <div class="d-flex justify-content-between">
-                        <div class="col pl-0"><span class="text-muted font-small d-block mb-2">Monthly</span> <span class="h5 text-dark font-weight-bold">3500$</span></div>
-                        <div class="col"><span class="text-muted font-small d-block mb-2">Seats</span> <span class="h5 text-dark font-weight-bold">10</span></div>
-                        <div class="col pr-0"><span class="text-muted font-small d-block mb-2">Sq.Ft</span> <span class="h5 text-dark font-weight-bold">1500</span></div>
+                        <div class="col pl-0"><span class="text-muted font-small d-block mb-2"><i class="fa fa-list-alt" aria-hidden="true"></i> Category</span> <span class="h5 text-dark font-weight-bold">{service.category}</span></div>
+                        
                     </div>
                 </div>
             </div>
