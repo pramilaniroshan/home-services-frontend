@@ -142,7 +142,7 @@ export default class Register extends Component {
       <div className="col-sm-6 login-section-wrapper">.
 
         <div className="brand-wrapper">
-        <Link to={'/'} > <img src="assets/images/logo.svg" alt="logo" class="logo" /> </Link>
+        <Link to={'/'} > <img src="https://res.cloudinary.com/dzn94tpjd/image/upload/v1627383912/Smart_Home.lk_2_bq39q7.png" alt="logo" class="logo" /> </Link>
         </div>
         <div className="login-wrapper my-auto">
             <h1 class="login-title">Register FREE</h1>
