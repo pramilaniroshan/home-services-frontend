@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-// spinner file
 import authService from '../../Services/auth.service';
+import {Link} from 'react-router-dom'
+// spinner file
+
 
 class Indlist extends Component {
 
+  
     
   constructor(props) {
     super(props);
@@ -14,6 +16,8 @@ class Indlist extends Component {
       service: [],
       searchkey : ''
     };
+    
+    this.deleteservice = this.deleteservice.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +39,22 @@ class Indlist extends Component {
       })
   };
 
+  deleteservice(id){
+   
+    let user = authService.getCurrentUser();
+    axios
+    .delete(`http://localhost:8080/api/service/all/${id}`,{
+       'x-access-token' : user.accessToken 
+    })
+    .then(res =>
+       {
+        console.log(res)
+      
+    })
+    .catch(err =>{
+      console.log(err);
+    })
+  }
 
   render() {
     
@@ -55,12 +75,14 @@ class Indlist extends Component {
                    <a>{s.category}</a>
                </div>
                <div class="card-text">
-               Pramila is a web designer living in Sri lanka.
+             
                </div>
            </div>
            <div class="card-footer">
-               <small>Last updated 3 mins ago {s.updated_date}</small>
-               <button class="btn btn-secondary float-right btn-sm">Edit</button>
+               <small>Last updated{s.updated_date}</small>
+              {  }
+               <Link to={`/edit-service/${s._id}`} className="btn btn-secondary float-right btn-sm">Edit</Link>
+               <button class="btn btn-secondary float-right delete btn-sm" onClick={this.deleteservice(s._id)}>Delete</button>
            </div>
        </div>
    </div>
