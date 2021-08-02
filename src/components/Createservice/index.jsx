@@ -27,7 +27,9 @@ class index extends Component {
       loading : false,
       currentUser: undefined,
       place: null,
-      cor : []
+      cor : [],
+      service_provider : '',
+      budget : 0
     };
     
   }
@@ -70,7 +72,13 @@ class index extends Component {
       published_date: this.state.published_date,
       image : this.state.image,
       place : this.state.place,
-      zipcode : localStorage.getItem('zipcode')
+      zipcode : this.state.currentUser.zipcode,
+      service_provider : this.state.currentUser.username,
+      budget : this.state.budget,
+      mobile : this.state.currentUser.mobile,
+      skype : this.state.currentUser.skype,
+      facebook : this.state.currentUser.facebook,
+
     };
 
    
@@ -90,11 +98,13 @@ class index extends Component {
           description:'',
           published_date:'',
           image : '',
-          place : []
+          place : [],
+          service_provider : '',
+          budget : undefined
           
         })
         this.props.history.push('/');
-        NotificationManager.success('You have added a new Service!', 'Successful!', 5000);
+        NotificationManager.success('You have added a new Service!', 'Successful!', 500000);
       })
       .catch(err => {
         //console.log("Error in CreateService!");
@@ -141,7 +151,7 @@ class index extends Component {
               <div >
          <GoogleComponent
          
-          apiKey={API_KEY}
+          apiKey={'AIzaSyB7o94wNtXWb34_vsE3I1OLhbA8zYSw-uM'}
           language={'si'}
           country={'country:LK'}
           coordinates={true}
@@ -188,6 +198,18 @@ class index extends Component {
                     name='description'
                     className='form-control'
                     value={this.state.description}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                <div className='form-group'>
+                Rs
+                  <input
+                    type='number'
+                    placeholder='Price'
+                    name='budget'
+                    className='form-control'
+                    value={this.state.budget}
                     onChange={this.onChange}
                   />
                 </div>
