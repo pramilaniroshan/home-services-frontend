@@ -10,7 +10,7 @@ import { NotificationManager } from 'react-notifications';
 let user = authService.getCurrentUser();
 
 
-let src = `https://www.gravatar.com/avatar/${md5(user.email)}?s=150`;
+
 
 
 class index extends Component {
@@ -56,7 +56,7 @@ class index extends Component {
       .put(`http://localhost:8080/api/test/user/${user.id}`,data)
       .then(res =>
          {
-        localStorage.setItem("zipcode", this.state.zipcode);
+        //localStorage.setItem("zipcode", this.state.zipcode);
         console.log(res.data)
         this.setState({
         mobile: 0,
@@ -65,12 +65,15 @@ class index extends Component {
         about_me: '',
         facebook: '',
         skype : '',
+        zipcode : undefined
          
         })
-        NotificationManager.success('You have added a new Service!', 'Successful!', 5000);
+
+        NotificationManager.success('You have Updated Your Proflie!', 'Successful!', 5000);
+        //window.location.href = '/profile'
       })
       .catch(err =>{
-        NotificationManager.error('Error while Creating new Service!', 'Error!',5000);
+        NotificationManager.error('Error while Updating Your Profile!', 'Error!',5000);
         console.log('Error from List');
       })
       console.log(data)
@@ -88,7 +91,7 @@ class index extends Component {
     //    } );
 
     if(user){
-    
+      let src = `https://www.gravatar.com/avatar/${md5(user.email)}?s=150`;
     return (
 
       <>
@@ -124,7 +127,8 @@ class index extends Component {
                 <div class="d-flex justify-content-between align-items-center experience"><span>Add Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus btn btn-primary" onSubmit={()=>this.handleAdd()}><button ></button></i>&nbsp;Experience</span></div><br></br>
                 <div class="col-md-12"><input type="text" name="skill_name" class="form-control" placeholder="experience" value={this.state.skill_name}
       onChange={this.handleChange} /></div> <br></br>
-                
+                <button class="btn">Delete My Account</button>
+                <button class="btn ">Change Password</button>
             </div>
             
         </div>
