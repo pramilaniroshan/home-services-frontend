@@ -1,0 +1,301 @@
+commit 2bf4ab89f8db38566e21e8f202d7a5db8e888a73
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:29:54 2021 +0530
+
+    docker file added
+
+commit 1a8ee789fb3156130a4cc7377e520ea1a277332d
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:29:42 2021 +0530
+
+    about us and contact routes added
+
+commit e9b9e7bdbdc0360a9432e96ef16c6948d1da135c
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:29:02 2021 +0530
+
+    automatically scroll to top fixed
+
+commit 13bb74f77e8fe856a373c2663d37e7cf3705eb42
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:28:28 2021 +0530
+
+    google places fetch fixed
+
+commit 683b020b00613be69cdef1accaefd8988b5a2599
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:26:02 2021 +0530
+
+    success notification added
+
+commit fe308799d621f21038d2f4f2176b9a355f4efdb1
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:25:23 2021 +0530
+
+    email js connected and tested
+
+commit 85b01cc04b263cc96b9c60b4cf341a73fd478097
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:25:04 2021 +0530
+
+    footer content updated
+
+commit e7efd5bae7c1f1caf8555089751eb712602d844a
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:24:41 2021 +0530
+
+    footer style changed
+
+commit 5a7e46313e5bc5176534e218d06558bd0e3cd7bb
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:24:25 2021 +0530
+
+    geolocation api key updated
+
+commit c30482839acda39d26159031ce17e229c2d10e90
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:23:54 2021 +0530
+
+    google api key updated
+
+commit db01af1dc276acfc9a33edd93d4767054b0fa2aa
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:23:38 2021 +0530
+
+    logo added
+
+commit 40d8235b337e445b5e3e51507005353934aa1db4
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:23:14 2021 +0530
+
+    footer added
+
+commit 2ed0ba9641222f1705d114d1ff6bf84ed5d1b141
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:22:59 2021 +0530
+
+    dynamic category added
+
+commit 2c8c430167419f40267eed6c3623f78d919c8724
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:22:32 2021 +0530
+
+    social media links added
+
+commit 0c1def0e7b65c2174711ca7b23c8a7be7c4b8234
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:22:00 2021 +0530
+
+    user service list com added
+
+commit 4e358030ccd715975edb020039bcde0f208733b1
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:21:34 2021 +0530
+
+    logo added to register com
+
+commit 7d9c0d897dcc9078c3af8e9b0b044a19a1fd47b9
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:21:08 2021 +0530
+
+    update service com added
+
+commit 6d76d2ffcd1021a17fa8f2b1e7d858f2a5e4e298
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:20:01 2021 +0530
+
+    about us page added
+
+commit d01b9c113dc38d22462c99e8458d9d4afc73464d
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:19:43 2021 +0530
+
+    contact us page added
+
+commit 3ccb39366b67179154d8e09b9eb9c649a70adb08
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon Aug 2 22:19:21 2021 +0530
+
+    react router scrool to top fixed
+
+commit 8b0df6862cadbbe65debf9bb58cc46fe83a6764e
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:16:27 2021 +0530
+
+    geo code and map module added
+
+commit 65b5d3fadc1d052968df96c70858a29ef41b4bac
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:15:18 2021 +0530
+
+    edit profile added to route
+
+commit cfcff020934fa64feab0f5f564867154c51d0458
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:14:48 2021 +0530
+
+    cloudinary image upload added
+
+commit 568514861360539b786e897835b35f869a259b9b
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:14:16 2021 +0530
+
+    edit profile com added and connected to backend
+
+commit 318316c2fe4cbf4d5e7a9eb755725dd43c2032d5
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:13:50 2021 +0530
+
+    footer text changed
+
+commit 73b148d26e7597af3d55add7e2bed07a41375ce3
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:13:26 2021 +0530
+
+    google geo code api connected
+
+commit 64ff742a7b32777797581f34eb2767b7ce31ee3c
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:12:42 2021 +0530
+
+    google map comp.
+     added
+
+commit 250ca009648087c505cc4ce52c0062d85a5aaa39
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:11:42 2021 +0530
+
+    react link added to navbar /
+
+commit b2834224b1756ec9eff4ad2d008f442e26e82c13
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:10:57 2021 +0530
+
+    update profile compent connected
+
+commit 6cbc63be186f80911a855c46bea53997127aa119
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:10:26 2021 +0530
+
+    service card style changed
+
+commit 55f0e40d28f897073b6d8c8ee164dc100e87c814
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:10:04 2021 +0530
+
+    google map added to show service detail
+
+commit 85d9543dbc25d76b45f0010f4e223c2ba2275953
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:09:23 2021 +0530
+
+    zipcode search added
+
+commit 96c6d6795039b2a2cf663a1c3604b919b0c0332b
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Tue Jul 27 14:08:55 2021 +0530
+
+    individual service list added
+
+commit 664f57386fc7ce109666eb6612e3818dde34ae64
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Sun Jul 18 10:05:57 2021 +0530
+
+    Stopped tracking env.local, and env.staging
+
+commit cb47d0118bae73bec9b97e804c9b46d3e5adc0c8
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Sun Jul 18 09:55:38 2021 +0530
+
+    clodinary added
+
+commit c29d18f6cfbd568039add271f9eddc77a86f6f25
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Fri Jul 16 22:48:50 2021 +0530
+
+    file fond file uploader added
+
+commit b2631c5b7cff378791a5cefc9ff5aa1eb49225c4
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Fri Jul 16 19:16:47 2021 +0530
+
+     gravatr api
+     setuped and profile rating comenets done
+
+commit 74c22bad96470111bf654df2499a85fb2d9cc0be
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Fri Jul 16 12:13:56 2021 +0530
+
+    push norifications setuped
+
+commit b49657b943cd83d1e80a288a1d7b480c069e0fea
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Fri Jul 16 12:13:32 2021 +0530
+
+    search component setuped
+
+commit e10407fe84e24bb7bce5895df73d42d3bd6ab1d8
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Fri Jul 16 12:12:41 2021 +0530
+
+    profile page nav bar added
+
+commit 51905d9171bef4be5fd3d3d9c9522a3ec1c3d9ff
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Fri Jul 16 12:12:15 2021 +0530
+
+    header coditional rendering done
+
+commit 9136fc4ea81638fb1be24f7a4407c4afdf70d427
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Fri Jul 16 12:11:45 2021 +0530
+
+    create service post request done
+
+commit 0a7ec07b088e357a461b7dfec3308b7296a8eb41
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Sun May 23 13:57:43 2021 +0530
+
+    advanced fuse search added
+
+commit 71ab090ea13ef64be732968992924fb7ed4b1740
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Sat May 22 21:28:32 2021 +0530
+
+    404 componet added
+
+commit e6df36a928023ff093686a8a6fb046e8953848f0
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Sat May 22 20:10:51 2021 +0530
+
+    Header componet style changed
+
+commit 71b86a361d335d06341ba08b74e8840ef47c5f2f
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Sat May 22 20:03:14 2021 +0530
+
+    user menu logic added
+
+commit fd9ba2a27c7fdffef8410351f01df4fa991c0564
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Sat May 22 18:57:55 2021 +0530
+
+    login and register components completed
+
+commit 2cff810679b083d3155cdc2680c60ac271f20053
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Fri May 21 22:41:11 2021 +0530
+
+    componetns created and designed
+
+commit e45fd177841318027d05844118050255af224262
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Fri May 21 08:56:48 2021 +0530
+
+    Components created
+
+commit 77d5509665b0b9b2fbb9491befb3c687709ed9f9
+Author: pramilaniroshan <pramilaniroshan@gmail.com>
+Date:   Mon May 3 13:33:32 2021 +0530
+
+    Initialize project using Create React App

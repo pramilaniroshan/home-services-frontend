@@ -26,11 +26,11 @@ class index extends Component {
         
          {
         let data = res;
-          console.log(res.data.place)
+          console.log(res.data[0])
         this.setState({
           service: res.data,
           loading: false,
-          place : 'f'
+          place : ''
         })
         
       })
@@ -55,7 +55,7 @@ class index extends Component {
     })
 
     serviceList = s.search(this.state.searchkey)
-    console.log(serviceList)
+    //console.log(serviceList)
 
     let serviceFil;
 

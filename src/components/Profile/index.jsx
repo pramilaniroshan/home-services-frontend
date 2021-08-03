@@ -36,9 +36,10 @@ export default function index() {
 //   },0);
 function deleteservice(id){
     id.preventDefault();
+    console.log('clicked')
     let user = authService.getCurrentUser();
     axios
-    .delete(`http://localhost:8080/api/service/all/${id}`,{
+    .delete(`vdvdhttp://localhost:8080/api/service/all/${id}`,{
        'x-access-token' : user.accessToken
        
       
@@ -81,9 +82,7 @@ if(user) {
                                     <h5>
                                       Hello 👋  {user.username}
                                     </h5>
-                                    <h6>
-                                    All plumbing work Fix and replce electronic value and new technology system
-                                    </h6>
+                                   
                                     <p class="proile-rating">RATINGS : 4.7
                                     <span>
                                         <ReactStars
@@ -177,7 +176,7 @@ if(user) {
                                    
              {/* card 2 */}
 
-             <Indlist  />
+             <Indlist />
                                         </div>
                                         
                                 <div class="row">

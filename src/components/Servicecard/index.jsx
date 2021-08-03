@@ -27,7 +27,7 @@ export default function index(props) {
                     <a href="#">
                         <h5 class="font-weight-normal"><Link to={link}> {service.title}</Link></h5>
                     </a>
-                    <div class="post-meta"><span class="small lh-120"><i class="fas fa-map-marker-alt mr-2"></i>{props.place}</span></div>
+                    {/* <div class="post-meta"><span class="small lh-120"><i class="fas fa-map-marker-alt mr-2"></i>{props.place}</span></div> */}
                     <div class="d-flex my-4">
                         <i class="star fas fa-star text-warning"></i>
                         <i class="star fas fa-star text-warning"></i>

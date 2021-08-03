@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom'
 // spinner file
 import authService from '../../Services/auth.service';
+
 import md5 from 'md5'
 import { tsThisType } from '@babel/types';
 import { NotificationManager } from 'react-notifications';
@@ -26,12 +27,17 @@ class index extends Component {
       about_me:'',
       facebook:'',
       skype :'',
+      password : ''
     
     };
     
     this.updateprofile = this.updateprofile.bind(this);
   }
 
+
+  componentDidMount() {
+    
+  };
  
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -56,6 +62,8 @@ class index extends Component {
       .put(`http://localhost:8080/api/test/user/${user.id}`,data)
       .then(res =>
          {
+
+         
         //localStorage.setItem("zipcode", this.state.zipcode);
         console.log(res.data)
         this.setState({
@@ -70,6 +78,13 @@ class index extends Component {
         })
 
         NotificationManager.success('You have Updated Your Proflie!', 'Successful!', 5000);
+        authService.login(user.username, this.state.password).then(
+          () => {
+            this.props.history.push("/profile");
+            window.location.reload();
+          },
+          
+            );
         //window.location.href = '/profile'
       })
       .catch(err =>{
@@ -117,7 +132,8 @@ class index extends Component {
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Facebook</label><input type="text" name="facebook" class="form-control" placeholder="your profile link" onChange={this.onChange} value={this.state.facebook}/></div>
-                    <div class="col-md-6"><label class="labels">Skype</label><input type="text" name="skype" class="form-control" onChange={this.onChange} value={this.state.skype} placeholder="your id"/></div>
+                    <div class="col-md-6"><label class="labels">Skype Name</label><input type="text" name="skype" class="form-control" onChange={this.onChange} value={this.state.skype} placeholder="your id"/></div>
+                    <div class="col-md-12"><label class="labels">Password</label><input type="password" name="password" class="form-control" placeholder="Enter Your Password" onChange={this.onChange} value={this.state.password}/></div>
                 </div>
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" onClick={this.updateprofile}>Save Profile</button></div>
             </div>
@@ -127,8 +143,8 @@ class index extends Component {
                 <div class="d-flex justify-content-between align-items-center experience"><span>Add Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus btn btn-primary" onSubmit={()=>this.handleAdd()}><button ></button></i>&nbsp;Experience</span></div><br></br>
                 <div class="col-md-12"><input type="text" name="skill_name" class="form-control" placeholder="experience" value={this.state.skill_name}
       onChange={this.handleChange} /></div> <br></br>
-                <button class="btn">Delete My Account</button>
-                <button class="btn ">Change Password</button>
+                <button class="btn btn-secondary">Delete My Account</button>
+                
             </div>
             
         </div>

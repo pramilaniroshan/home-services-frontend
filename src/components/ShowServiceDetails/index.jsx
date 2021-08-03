@@ -50,7 +50,7 @@ class ShowServiceDetails extends Component {
 
     const Service = this.state.Service;
     let date = Date(this.state.Service.updated_date);
-
+    let mobile = `tel:${Service.mobile}`
     
     return (
     <>
@@ -87,8 +87,8 @@ class ShowServiceDetails extends Component {
                         <a href="#x" class="btn btn-xs btn-pinterest btn-circle btn-icon mr-5 mb-0"><i class="fa fa-mobile"></i></a>
                         <a href="#x" class="btn btn-xs btn-linkedin btn-circle btn-icon mr-5 mb-0"><i class="fab fa-linkedin-in"></i></a> */}
                      <a href={Service.facebook} target="_blank" > <i class="fab fa-facebook-f pr-4 fa-2x" style={{color:"#3C5B99"}}></i></a> 
-                        <i class="fab fa-whatsapp pr-4 fa-2x" style={{color:"#128C7E"}}></i>
-                        <i class="fab fa-skype pr-4 fa-2x" style={{color:"#00AAE8"}} ></i>
+                     <a href={mobile} >    <i class="fab fa-whatsapp pr-4 fa-2x" style={{color:"#128C7E"}}></i></a> 
+                     <a href="skype:live:.cid.e5c1822dcb83f6c8?call"  >    <i class="fab fa-skype pr-4 fa-2x" style={{color:"#00AAE8"}} ></i></a> 
                     </p>
                 </div>
     

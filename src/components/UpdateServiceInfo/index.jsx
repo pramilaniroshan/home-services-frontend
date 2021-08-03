@@ -11,7 +11,7 @@ require('dotenv').config();
 
 
 
-const API_KEY = "AIzaSyBMhNtTeK3q5agvPCN_yKSk-GQbXg3WULo"
+const API_KEY = "AIzaSyB7o94wNtXWb34_vsE3I1OLhbA8zYSw-uM"
 
 class index extends Component {
   
@@ -29,18 +29,21 @@ class index extends Component {
       place: null,
       cor : [],
       service_provider : '',
-      budget : 0
+      budget : 0,
+      url : ''
     };
     
   }
 
   componentDidMount() {
     const user = AuthService.getCurrentUser();
-    URL = window.location.href.split("/");
-    console.log(URL[4])
+   let url = window.location.href.split("/");
+
+    console.log(url[4])
     if (user) {
       this.setState({
         currentUser: user,
+        url : url[4]
         // 
       });
     }
@@ -52,6 +55,27 @@ class index extends Component {
           this.state.image = result.info.url;
         }
       });
+
+      axios
+      .get(`http://localhost:8080/api/service/all/${this.state.url}`)
+      .then(res => {
+        let data = res;
+       console.log(res.data[0].title)
+       // console.log("Print-showServiceDetails-API-response: " + res.place[0].coordinates);
+        this.setState({
+          title: res.data[0].title,
+          category: res.data[0].category,
+        description: res.data[0].description,
+        published_date: res.data[0].published_date,
+        image : res.data[0].image,
+        service_provider : res.data[0].service_provider,
+        budget : res.data[0].budget,
+        
+        })
+      })
+      .catch(err => {
+        console.log("Error from ShowServiceDetails");
+      })
 
   }
  
@@ -86,9 +110,9 @@ class index extends Component {
 
     console.log(data);
    
-
+   
     axios
-      .post('http://localhost:8080/api/service/all',
+      .put(`http://localhost:8080/api/service/all/${this.state.url}`,
       data
       )
       .then(res => {
@@ -105,12 +129,12 @@ class index extends Component {
           
         })
         this.props.history.push('/');
-        NotificationManager.success('You have added a new Service!', 'Successful!', 5000);
+        NotificationManager.success('You have Updated Your Service!', 'Successful!', 5000);
       })
       .catch(err => {
         //console.log("Error in CreateService!");
         this.setState({loading : false})
-        NotificationManager.error('Error while Creating new Service!', 'Error!',5000);
+        NotificationManager.error('Error while Updating Service!', 'Error!',5000);
       })
   };
 
@@ -133,21 +157,25 @@ class index extends Component {
 
     
       <div className="CreateService">
-        <div className="container">
+        <div className="container jumbotron">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-6 m-auto">
               <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
+              <br />
+              
+              {/* <Link to="/profile" className="btn btn-primary float-left">
                   Show My Service Service List
-              </Link>
+              </Link> */}
             </div>
            
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Edit Service</h1>
-              <p className="lead text-center">
-                  Update Your Service
-              </p>
+            {/* <Link to="/profile" className="btn btn-primary float-left">
+                  Show My Service Service List
+              </Link> */}
+            <div class="alert alert-warning" role="alert">
 
+ {this.state.title}
+</div>
 
               <div >
          <GoogleComponent
@@ -214,20 +242,11 @@ class index extends Component {
                   />
                 </div>
 
-                <div className='form-group'>
-                  <input
-                    type='date'
-                    placeholder='published_date'
-                    name='published_date'
-                    className='form-control'
-                    value={this.state.published_date}
-                    onChange={this.onChange}
-                  />
-                </div>
+                
                 
                 {console.log(this.state.place)}
                 <div className='form-group'>
-                <button id="opener" className="btn" onChange={this.onChange}>Upload</button>
+                <button  id="opener" className="btn" onChange={this.onChange}>Upload</button>
                 {/* <FileBase64
         multiple={ false }
         onDone={ a =>  this.state.image = a.base64   } /> */}
@@ -244,9 +263,17 @@ class index extends Component {
                 <input
                     type="submit"
                     className="btn btn-primary btn-block mt-4"
+                    value="Update"
                 />
               </form>
+              
           </div>
+          <div class="card" style={{width:"18rem"}}>
+  <img class="card-img-top" src={this.state.image} alt="Card image cap" />
+  <div class="card-body">
+    
+  </div>
+</div>
           {this.state.loading && 
         <Loader
         type="Oval"

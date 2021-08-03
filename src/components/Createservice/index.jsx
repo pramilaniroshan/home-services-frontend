@@ -104,7 +104,7 @@ class index extends Component {
           
         })
         this.props.history.push('/');
-        NotificationManager.success('You have added a new Service!', 'Successful!', 500000);
+        NotificationManager.success('You have added a new Service!', 'Successful!', 5000);
       })
       .catch(err => {
         //console.log("Error in CreateService!");
